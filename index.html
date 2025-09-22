@@ -6,6 +6,22 @@
     <title>Grappling — Catálogo</title>
     <meta name="color-scheme" content="dark light">
     <meta name="description" content="Catálogo responsivo de camisas e equipamentos Grappling">
+    <!-- Open Graph / Twitter for social sharing -->
+    <link rel="canonical" href="https://grappling-9wak.vercel.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Grappling — Catálogo">
+    <meta property="og:title" content="Grappling — Catálogo">
+    <meta property="og:description" content="Catálogo responsivo de camisas e equipamentos Grappling">
+    <meta property="og:url" content="https://grappling-9wak.vercel.app/">
+    <!-- Importante: use uma imagem PNG/JPG quadrada. Substitua pelo arquivo real quando disponível. -->
+    <meta property="og:image" content="https://grappling-9wak.vercel.app/logo-512.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Grappling — Catálogo">
+    <meta name="twitter:description" content="Catálogo responsivo de camisas e equipamentos Grappling">
+    <meta name="twitter:image" content="https://grappling-9wak.vercel.app/logo-512.png">
     <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%234f8cff"/><stop offset="1" stop-color="%2320c997"/></linearGradient></defs><rect width="64" height="64" rx="14" fill="url(%23g)"/><text x="50%" y="54%" font-family="Arial Black, Arial" font-weight="900" font-size="34" text-anchor="middle" fill="white">G</text></svg>' />
     <link rel="preconnect" href="https://wa.me" crossorigin>
     <style>
@@ -92,6 +108,19 @@
             font-weight: 700;
             white-space: nowrap;
         }
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            object-fit: contain;
+            aspect-ratio: 1 / 1;
+            background: #fff;
+            border: 1px solid var(--border);
+        }
+        .brand-logo-img { display: inline-block; }
+        .brand-logo-pdf { display: none; }
         .search-filters {
             display: flex;
             align-items: center;
@@ -137,6 +166,28 @@
         @media (min-width: 600px) { .grid { grid-template-columns: repeat(2, 1fr); } }
         @media (min-width: 900px) { .grid { grid-template-columns: repeat(3, 1fr); } }
         @media (min-width: 1200px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+
+        /* Responsividade: mobile-first ajustes */
+        @media (max-width: 599px) {
+            .container { padding: 12px 14px; }
+            .header-bar { gap: 10px; }
+            .brand-logo { width: 52px; height: 52px; }
+            .brand-logo-img { display: none; }
+            .brand-logo-pdf { display: inline-block; }
+            .title { white-space: normal; font-size: 17px; }
+            .search-filters { flex-wrap: wrap; gap: 8px; }
+            .search-input, .select-filter { width: 100%; }
+            .grid { padding: 12px; gap: 12px; margin: 8px auto 70px; }
+            .card img { height: min(56vw, 260px); }
+            .content { padding: 14px 14px 16px; }
+            .media { min-height: 220px; }
+        }
+
+        /* Tablet ajustes */
+        @media (min-width: 600px) and (max-width: 899px) {
+            .container { padding: 14px 18px; }
+            .card img { height: 240px; }
+        }
 
         /* Card */
         .card {
@@ -335,7 +386,8 @@
     <header>
         <div class="container header-bar">
             <div class="brand" aria-label="Logo da loja Grappling">
-                <object data="Logo Grappling.pdf.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" aria-label="Logo Grappling" style="width:36px;height:36px;border-radius:50%;overflow:hidden;box-shadow: var(--shadow);"></object>
+                <object class="brand-logo brand-logo-pdf" data="Logo Grappling.pdf.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" aria-label="Logo Grappling"></object>
+                <img class="brand-logo brand-logo-img" src="logo-512.png" alt="Logo Grappling" loading="eager" referrerpolicy="no-referrer"/>
                 <div class="title">Grappling — Catálogo</div>
             </div>
             <div class="search-filters" role="search">
