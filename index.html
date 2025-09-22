@@ -126,6 +126,7 @@
             align-items: center;
             gap: 10px;
             justify-content: center;
+            min-width: 0;
         }
         .search-input, .select-filter {
             appearance: none;
@@ -170,13 +171,14 @@
         /* Responsividade: mobile-first ajustes */
         @media (max-width: 599px) {
             .container { padding: 12px 14px; }
-            .header-bar { gap: 10px; }
+            .header-bar { gap: 10px; grid-template-columns: 1fr; }
             .brand-logo { width: 52px; height: 52px; }
             .brand-logo-img { display: none; }
             .brand-logo-pdf { display: inline-block; }
             .title { white-space: normal; font-size: 17px; }
-            .search-filters { flex-wrap: wrap; gap: 8px; }
+            .search-filters { flex-wrap: wrap; gap: 8px; width: 100%; }
             .search-input, .select-filter { width: 100%; }
+            .theme-toggle { width: 100%; }
             .grid { padding: 12px; gap: 12px; margin: 8px auto 70px; }
             .card img { height: min(56vw, 260px); }
             .content { padding: 14px 14px 16px; }
@@ -387,7 +389,7 @@
         <div class="container header-bar">
             <div class="brand" aria-label="Logo da loja Grappling">
                 <object class="brand-logo brand-logo-pdf" data="Logo Grappling.pdf.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" aria-label="Logo Grappling"></object>
-                <img class="brand-logo brand-logo-img" src="logo-512.png" alt="Logo Grappling" loading="eager" referrerpolicy="no-referrer"/>
+                <img class="brand-logo brand-logo-img" src="logo-512.png" alt="Logo Grappling" loading="eager" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.previousElementSibling.style.display='inline-block';"/>
                 <div class="title">Grappling — Catálogo</div>
             </div>
             <div class="search-filters" role="search">
